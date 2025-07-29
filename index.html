@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>📊 Data Visualization Tool</title>
+
+  <!-- Plotly -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <!-- SheetJS for Excel -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <!-- Script -->
+  <script src="script.js" defer></script>
+
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #111;
+      --accent-color: #007bff;
+      --border-color: #ddd;
+    }
+    [data-theme="dark"] {
+      --bg-color: #111;
+      --text-color: #eee;
+      --accent-color: #00bcd4;
+      --border-color: #333;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    h1 { font-weight: 600; margin-bottom: 1rem; }
+    #file-input {
+      margin: 1rem 0;
+      padding: 0.5rem;
+      font-size: 1rem;
+    }
+
+    #dropdowns { display: none; margin: 1rem 0; }
+    select, button {
+      margin: 0.5rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      background: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    button {
+      background-color: var(--accent-color);
+      color: white;
+      cursor: pointer;
+    }
+
+    #plot {
+      margin-top: 2rem;
+      width: 100%;
+      max-width: 1000px;
+      height: 500px;
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      background: var(--accent-color);
+      color: white;
+      padding: 6px 10px;
+      border: none;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body data-theme="light">
+  <button class="theme-toggle" onclick="toggleTheme()">🌙 Toggle Theme</button>
+
+  <h1>PLOTIFY</h1>
+
+  <input type="file" id="file-input" accept=".csv, .xlsx" />
+
+  <div id="dropdowns">
+    <label for="x-select">X-axis:</label>
+    <select id="x-select"></select>
+
+    <label for="y-select">Y-axis:</label>
+    <select id="y-select"></select>
+
+    <button onclick="drawChart()">📈 Plot Chart</button>
+  </div>
+
+  <div id="plot"></div>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const current = body.getAttribute('data-theme');
+      body.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+    }
+  </script>
+</body>
+</html>
