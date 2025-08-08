@@ -26,9 +26,9 @@
 
 ```mermaid
 graph LR
-    A[🎙️ User Speaks<br><sub>Voice Input</sub>] -->|🔊 Audio Stream| B[🖥️ LiveKit Room<br><sub>WebRTC Connection</sub>]
-    B -->|✨ Noise Filtering| C[🌀 Noise Cancellation (BVC)<br><sub>Clear Audio</sub>]
-    C -->|📡 Send to AI| D[🤖 Google Gemini 2.0 Flash (Realtime)<br><sub>STT + Reasoning</sub>]
-    D -->|💬 AI Output| E[🧠 AgentSession<br><sub>Logic Handler</sub>]
-    E --> F[👨‍💻 Assistant Class<br><sub>Personality Applied</sub>]
-    F -->|🔈 Speak Back| G[🎧 User Hears Response<br><sub>Natural AI Voice</sub>]
+    A[🎙️ User Speaks\nVoice Input] -->|🔊 Audio Stream| B[🖥️ LiveKit Room\nWebRTC Connection]
+    B -->|✨ Noise Filtering| C[🌀 Noise Cancellation (BVC)\nClear Audio]
+    C -->|📡 Send to AI| D[🤖 Google Gemini 2.0 Flash (Realtime)\nSTT + Reasoning]
+    D -->|💬 AI Output| E[🧠 AgentSession\nLogic Handler]
+    E --> F[👨‍💻 Assistant Class\nPersonality Applied]
+    F -->|🔈 Speak Back| G[🎧 User Hears Response\nNatural AI Voice]
