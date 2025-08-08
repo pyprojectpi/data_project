@@ -24,14 +24,12 @@
 
 ## 📊 System Architecture
 
-✅ Changes made:
-- Removed all emojis from inside the `[ ]` nodes.  
-- Kept emojis in the **section title** (`## 📊 System Architecture`) instead.  
-- Used `\n` for line breaks in labels.  
+```mermaid
+graph LR
+    A[User Speaks\nVoice Input] -->|Audio Stream| B[LiveKit Room\nWebRTC Connection]
+    B -->|Noise Filtering| C[Noise Cancellation (BVC)\nClear Audio]
+    C -->|Send to AI| D[Google Gemini 2.0 Flash (Realtime)\nSTT + Reasoning]
+    D -->|AI Output| E[AgentSession\nLogic Handler]
+    E --> F[Assistant Class\nPersonality Applied]
+    F -->|Speak Back| G[User Hears Response\nNatural AI Voice]
 
----
-
-If you want, I can now **replace this Mermaid diagram with a colorful PNG flowchart** so it looks **beautiful everywhere** and we avoid Mermaid restrictions entirely.  
-That would make your README look more premium.  
-
-Do you want me to prepare that PNG diagram for you?
