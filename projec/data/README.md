@@ -38,5 +38,5 @@ Here is the generated dashboard 👇
 ## ⚡ How to Run
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/retail-dashboard.git
+   git clone https://github.com/pyprojectpi/retail-dashboard.git
    cd retail-dashboard
